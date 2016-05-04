@@ -1,0 +1,37 @@
+@mixin hexagon($width, $height, $bg-color, $border-top, $border-left-right, $border-bottom) {
+  width: $width;
+  height: $height;
+  background: $bg-color;
+  position: relative;
+
+  &:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -$border-bottom;
+    left: 0;
+    border-left: $border-left-right solid transparent;
+    border-right: $border-left-right solid transparent;
+    border-bottom: $border-bottom solid $bg-color;
+  }
+  &:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: -$border-top;
+    left: 0;
+    border-left: $border-left-right solid transparent;
+    border-right: $border-left-right solid transparent;
+    border-top: $border-top solid $bg-color;
+  }
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
